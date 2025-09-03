@@ -1,14 +1,29 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><title>3-tier demo</title></head>
+<head>
+  <meta charset="utf-8">
+  <title>3-tier demo</title>
+</head>
 <body>
   <h1>Frontend with Mark</h1>
+
   <button id="btn">Ping API</button>
   <pre id="out"></pre>
+
+  <h2>Products</h2>
+  <button id="products">Get Products</button>
+  <pre id="products-out"></pre>
+
   <script>
     document.getElementById('btn').onclick = async () => {
       const r = await fetch('/api/health');
       document.getElementById('out').textContent = await r.text();
+    };
+
+    document.getElementById('products').onclick = async () => {
+      const r = await fetch('/api/products');
+      const data = await r.json();
+      document.getElementById('products-out').textContent = JSON.stringify(data, null, 2);
     };
   </script>
 </body>

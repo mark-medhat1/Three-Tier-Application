@@ -23,6 +23,16 @@ app.get("/api/health", async (_req, res) => {
   }
 });
 
+app.get("/api/products", async (_req, res) => {
+  try {
+    const r = await pool.query("SELECT * FROM products");
+    res.json(r.rows);
+  } catch (e) {
+    res.status(500).send(`DB error: ${e.message}`);
+  }
+});
+
+
 // Root endpoint
 app.get("/", (_req, res) => {
   res.send("Welcome to the API");
