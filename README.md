@@ -12,6 +12,8 @@ The architecture follows the classic 3-tier pattern:
 
 ## 🏗️ Architecture
 
+<img width="1920" height="863" alt="Screenshot (259)" src="https://github.com/user-attachments/assets/b3992b71-b5a5-4500-b6b3-3ce73e31fd82" />
+
 ```text
 +-------------+       +-----------------+       +----------------+
 |  Frontend   | <---> |  API (Express)  | <---> |   PostgreSQL   |
@@ -41,6 +43,8 @@ The architecture follows the classic 3-tier pattern:
 │   ├── frontend-deployment.yaml
 │   ├── frontend-service.yaml
 │   ├── ingress.yaml
+│   ├── db-init-script.yaml
+│   ├── init.sql
 │   └── kustomization.yaml
 └── .github/
     └── workflows/
