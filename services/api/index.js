@@ -13,6 +13,7 @@ const pool = new Pool({
   port: +(process.env.PGPORT || 5432)
 });
 
+// Health endpoint
 app.get("/api/health", async (_req, res) => {
   try {
     const r = await pool.query("SELECT NOW() as now");
@@ -20,6 +21,11 @@ app.get("/api/health", async (_req, res) => {
   } catch (e) {
     res.status(500).send(`DB error: ${e.message}`);
   }
+});
+
+// Root endpoint
+app.get("/", (_req, res) => {
+  res.send("Welcome to the API");
 });
 
 app.listen(port, () => console.log(`API listening on ${port}`));
