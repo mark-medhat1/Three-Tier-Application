@@ -1,13 +1,14 @@
+-- Create products table
 CREATE TABLE IF NOT EXISTS products (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    price DECIMAL(10,2) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    name TEXT NOT NULL,
+    price NUMERIC(10,2) NOT NULL
 );
 
+-- Insert sample data
 INSERT INTO products (name, price) VALUES
-('Laptop', 1500.00),
-('Mouse', 20.00),
-('Keyboard', 50.00)
+('Laptop', 1200.00),
+('Phone', 600.00),
+('Headphones', 150.00)
 ON CONFLICT DO NOTHING;
 
